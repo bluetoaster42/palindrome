@@ -19,12 +19,24 @@ describe("Phrase", function(){
 			let punctPalindrome = new Phrase("Madam, I'm Adam.");
 			assert(punctPalindrome.palindrome());
 		});
+		it("should return true for an empty string", function(){
+			let emptyPalindrome = new Phrase("");
+			assert(emptyPalindrome.palindrome());
+		});
 	});
 	
 	describe("#letters", function(){
 		it("should return only letters", function(){
 			let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
 			assert.strictEqual(punctuatedPalindrome.letters(), "MadamImAdam");
+		});
+		it("should return the empty string when given the empty string", function(){
+			let emptyPalindrome = new Phrase("");
+			assert.strictEqual(emptyPalindrome.letters(), "");
+		});
+		it("should return empty string on no match", function(){
+			let noLetters = new Phrase("12345");
+			assert.strictEqual(noLetters.letters(), "");
 		});
 	});
 });
